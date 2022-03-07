@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,7 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::prefix('blogs')->group(function (){
+Route::middleware('checkAuth')->prefix('blogs')->group(function (){
     Route::get('/', [BlogController::class,'index'])->name('blogs.index');
     Route::get('/delete/{id}', [BlogController::class,'destroy'])->name('blogs.destroy');
     Route::get('/create',[BlogController::class,'create'])->name('blogs.create');
@@ -28,3 +29,6 @@ Route::prefix('blogs')->group(function (){
     Route::get('/detail/{id}',[BlogController::class,'show'])->name('blogs.detail');
 
 });
+
+Route::get('login', [AuthController::class,'showFormLogin'])->name('showFormLogin');
+Route::post('login', [AuthController::class,'Login'])->name('Login');
