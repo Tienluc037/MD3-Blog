@@ -8,7 +8,6 @@
 
 @extends('home')
 @section('title', 'Chỉnh sửa')
-
 @section('content')
 
     <div class="card shadow mb-4">

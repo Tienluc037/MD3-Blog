@@ -28,10 +28,10 @@
                             <p style="color: red">{{($message)}}</p>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label for="">Nội dung</label>
+                        <div class="form-group" >
+                            <label for="" >Nội dung</label>
                             <textarea type="text" name="content" class="form-control"
-                                      value="{{old("content")}}" rows="5"> </textarea>
+                                      value="{{old('content')}}" rows="5"> </textarea>
                             @error('content')
                             <p style="color: red">{{($message)}}</p>
                             @enderror
