@@ -23,15 +23,16 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Tiêu đề</label> <br>
-                            <input type="text" name="title" value="{{old("title")}}">
+                            <label>
+                                <input type="text" name="title" size="50" value="{{old("title")}}">
+                            </label>
                             @error('title')
                             <p style="color: red">{{($message)}}</p>
                             @enderror
                         </div>
                         <div class="form-group" >
-                            <label for="" >Nội dung</label>
-                            <textarea type="text" name="content" class="form-control"
-                                      value="{{old('content')}}" rows="5"> </textarea>
+                            <label for="" >Nội dung
+                            <textarea name="content" class="form-control" rows="5" cols="100">{{old('content')}}</textarea></label>
                             @error('content')
                             <p style="color: red">{{($message)}}</p>
                             @enderror

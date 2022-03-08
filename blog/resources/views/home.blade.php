@@ -21,7 +21,6 @@
 </head>
 <body>
 <a href="{{route('showFormLogin')}}">Login</a>
-
 <div class="container">
     @yield('content')
 </div>

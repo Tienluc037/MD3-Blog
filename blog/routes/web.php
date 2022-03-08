@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +29,12 @@ Route::middleware('checkAuth')->prefix('blogs')->group(function (){
     Route::post('/update/{id}',[BlogController::class,'update'])->name('blogs.update');
     Route::get('/detail/{id}',[BlogController::class,'show'])->name('blogs.detail');
 
+    Route::get('favorite',[FavoriteController::class,'showFavorite'])->name('showFavorite');
+    Route::get('favorite/{id}',[FavoriteController::class,'addToFavorite'])->name('addToFavorite');
+
 });
 
 Route::get('login', [AuthController::class,'showFormLogin'])->name('showFormLogin');
-Route::post('login', [AuthController::class,'Login'])->name('Login');
+Route::post('login', [AuthController::class,'Login'])->name('login');
+Route::get('logout',[AuthController::class,"logout"])->name("logout");
+

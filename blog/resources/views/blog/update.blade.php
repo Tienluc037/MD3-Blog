@@ -18,21 +18,29 @@
                     <h1>Chỉnh sửa</h1>
                 </div>
                 <div class="col-12">
-                <form method="post" action="{{ route('blogs.update',$blog->id) }}">
-                    @csrf
-                    <div class="form-group">
-                        <label>Title</label>
-                        <input type="text" class="form-control" name="title" placeholder="Enter title" value="{{$blog->title}}" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Content</label>
-                        <input type="text" class="form-control" name="content" placeholder="Enter content" value="{{$blog->content}}" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
-                    <a class="btn btn-success" href="{{route('blogs.index')}}">Back</a>
-                </form>
+                    <form method="post" action="{{ route('blogs.store') }}">
+                        @csrf
+                        <div class="form-group">
+                            <label for="">Tiêu đề</label> <br>
+                            <label>
+                                <input type="text" name="title" size="50" value="{{$blog->title}}">
+                            </label>
+                            @error('title')
+                            <p style="color: red">{{($message)}}</p>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="">Nội dung
+                                <textarea name="content" class="form-control" rows="5"
+                                          cols="100">{{$blog->content}}</textarea></label>
+                            @error('content')
+                            <p style="color: red">{{($message)}}</p>
+                            @enderror
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                        <a class="btn btn-success" href="{{route('blogs.index')}}">Back</a>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 @endsection

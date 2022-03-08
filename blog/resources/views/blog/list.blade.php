@@ -1,8 +1,11 @@
 @extends('home')
 @section('content')
-    <div class="card shadow mb-4">
+    <a href="{{route('logout')}}">Logout</a><br>
+    <a href="{{route('showFavorite')}}">Favorite List ({{count(session()->get('favorite'))}})</a>
+    <div class="card shadow mb-4" style="text-align: center">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary" style="text-align: center"><a href="{{route("blogs.create")}}" style="color: #5d5987" >
+            <h6 class="m-0 font-weight-bold text-primary"><a href="{{route("blogs.create")}}"
+                                                                                        style="color: #5d5987">
                     Thêm bài viết</a></h6>
         </div>
         <div class="card-body">
@@ -15,7 +18,7 @@
                         <th>ID</th>
                         <th>Title</th>
                         <th>Content</th>
-                        <th colspan="3" style="text-align: center">Action</th>
+                        <th colspan="4">Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -28,6 +31,9 @@
                                    href="{{route('blogs.destroy',$blog->id)}}">Delete</a></td>
                             <td><a href="{{route('blogs.edit',$blog->id)}}">Update</a></td>
                             <td><a style="color: darkgreen" href="{{route('blogs.detail',$blog->id)}}">Detail</a></td>
+                            <td><a
+                                    href="{{route("addToFavorite",$blog->id)}}">Favorite</a>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
