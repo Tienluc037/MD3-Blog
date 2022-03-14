@@ -18,7 +18,7 @@
                     <h1>Chỉnh sửa</h1>
                 </div>
                 <div class="col-12">
-                    <form method="post" action="{{ route('blogs.store') }}">
+                    <form method="post" action="{{ route('blogs.update',$blog->id) }}">
                         @csrf
                         <div class="form-group">
                             <label for="">Tiêu đề</label> <br>
@@ -37,7 +37,7 @@
                             <p style="color: red">{{($message)}}</p>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary">Create</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                         <a class="btn btn-success" href="{{route('blogs.index')}}">Back</a>
                     </form>
                 </div>

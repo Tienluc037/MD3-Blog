@@ -45,7 +45,6 @@ class AuthController extends Controller
     public function showForm()
     {
         $roles = Role::all();
-
         return view('auth.register',compact('roles'));
     }
 

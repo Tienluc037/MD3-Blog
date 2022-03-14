@@ -7,14 +7,6 @@ use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
 {
-    public function showFavorite()
-    {
-        $blogs = session()->get("favorite") ?? [];
-//        dd($blogs);
-        return view('favorite.showFavorite', compact('blogs'));
-    }
-
-
     public function addToFavorite($id)
     {
 
@@ -33,5 +25,26 @@ class FavoriteController extends Controller
         }
         session()->put('favorite', $favorites);
         return redirect()->back()->with('success', 'added to favorite successfully!');
+    }
+
+
+    public function showFavorite()
+    {
+        $blogs = session()->get("favorite") ?? [];
+//        dd($blogs);
+        return view('favorite.showFavorite', compact('blogs'));
+    }
+
+
+    public function deleteToFavorite($id)
+    {
+        $blog = session()->get("favorite");
+        if ($blog[$id]['quantity'] > 1) {
+            $blog[$id]['quantity'] --;
+        }else {
+            unset($blog[$id]);
+        }
+        session()->put("favorite",$blog);
+        return redirect()->back();
     }
 }

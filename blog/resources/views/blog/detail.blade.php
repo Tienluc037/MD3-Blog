@@ -19,13 +19,12 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($blogs as $blog)
-        <tr>
+          <tr>
             <td>{{$blog->id}}</td>
             <td>{{$blog->title}}</td>
             <td>{{$blog->content}}</td>
         </tr>
-    @endforeach
+
     </tbody>
 </table>
 </body>

@@ -11,7 +11,7 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr style="color: #524b8cd9">
-{{--                    <th>ID</th>--}}
+                    <th>ID</th>
                     <th>Title</th>
                     <th>Content</th>
                     <th>Quantity</th>
@@ -23,10 +23,11 @@
                 @foreach($blogs as $blog)
 {{--                    {{dd($blog)}}--}}
                     <tr>
-{{--                        <td>{{$blog["id"]}}</td>--}}
+                        <td>{{$blog["id"]}}</td>
                         <td>{{$blog["title"]}}</td>
                         <td>{{$blog["content"]}}</td>
                         <td>{{$blog["quantity"]}}</td>
+                        <td><a style="color: red" href="{{route('blogs.deleteToFavorite',$blog['id'])}}" onclick=" return confirm('Bạn có muốn xóa?')">Delete</a></td>
                     </tr>
                 @endforeach
                 </tbody>

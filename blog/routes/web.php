@@ -29,8 +29,9 @@ Route::middleware('checkAuth')->prefix('blogs')->group(function (){
     Route::post('/update/{id}',[BlogController::class,'update'])->name('blogs.update');
     Route::get('/detail/{id}',[BlogController::class,'show'])->name('blogs.detail');
 
-    Route::get('favorite',[FavoriteController::class,'showFavorite'])->name('showFavorite');
-    Route::get('favorite/{id}',[FavoriteController::class,'addToFavorite'])->name('addToFavorite');
+    Route::get('favorite',[FavoriteController::class,'showFavorite'])->name('blogs.showFavorite');
+    Route::get('favorite/{id}',[FavoriteController::class,'addToFavorite'])->name('blogs.addToFavorite');
+    Route::get('deleteFavorite/{id}',[FavoriteController::class,'deleteToFavorite'])->name('blogs.deleteToFavorite');
 
 });
 
