@@ -31,16 +31,6 @@ class UserService extends BaseService
     {
         $data = $request->only('name', 'email', 'password', 'role');
         $data['password'] = Hash::make($data['password']);
-//        DB::table('users')->insert($data);
-
-
-//
-//        $user = new User();
-//        $user->name = $request->name;
-//        $user->email = $request->email;
-//        $user->password = Hash::make($request->password);
-//        $user->save();
-//
         $user = User::create($data);
         $user->roles()->sync($request->role);
         return $this->sendResponse($user, 'Create user successfully', 201);

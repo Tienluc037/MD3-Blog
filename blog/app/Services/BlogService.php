@@ -25,12 +25,10 @@ class BlogService extends BaseService
         $blog->title = $request->input('title');
         $blog->content = $request->input('content');
         $blog->save();
-
     }
 
     public function update($id, $request)
     {
-//        $blog = Blog::findOrFail($id);
         $blog = $this->blogRepository->getById($id);
         $blog->title = $request->input('title');
         $blog->content = $request->input('content');
@@ -40,9 +38,5 @@ class BlogService extends BaseService
     public function getById($id)
     {
         return $this->blogRepository->getById($id);
-    }
-    public function getBlogOfUser($id)
-    {
-
     }
 }

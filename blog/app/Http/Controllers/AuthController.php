@@ -26,9 +26,6 @@ class AuthController extends Controller
         if ($this->userService->login($request)){
             return redirect()->route('blogs.index');
 
-//        $user = $request->only('email','password');
-//        if (Auth::attempt($user)){
-//            return redirect()->route('blogs.index');
         }else {
             \Illuminate\Support\Facades\Session::flash('mgs','Tài khoản hoặc mật khẩu không chính xác');
             return redirect()->back();
@@ -40,7 +37,6 @@ class AuthController extends Controller
         Auth::logout();
         return redirect()->route('login');
     }
-
 
     public function showForm()
     {

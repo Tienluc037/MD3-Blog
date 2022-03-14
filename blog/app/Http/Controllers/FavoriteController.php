@@ -31,7 +31,6 @@ class FavoriteController extends Controller
     public function showFavorite()
     {
         $blogs = session()->get("favorite") ?? [];
-//        dd($blogs);
         return view('favorite.showFavorite', compact('blogs'));
     }
 
