@@ -34,6 +34,10 @@ Route::middleware('checkAuth')->prefix('blogs')->group(function (){
 
 });
 
+Route::get('register',[AuthController::class, 'showForm'])->name('showFormRegister');
+Route::post('register',[AuthController::class, 'register'])->name('register')->middleware('checkRegister');
+
+
 Route::get('login', [AuthController::class,'showFormLogin'])->name('showFormLogin');
 Route::post('login', [AuthController::class,'Login'])->name('login');
 Route::get('logout',[AuthController::class,"logout"])->name("logout");
