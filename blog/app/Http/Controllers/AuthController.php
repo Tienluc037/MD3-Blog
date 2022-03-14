@@ -24,6 +24,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         if ($this->userService->login($request)){
+            toastr()->success('Xin chào '. Auth::user()->name);
             return redirect()->route('blogs.index');
 
         }else {
@@ -47,6 +48,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $this->userService->create($request);
+        toastr()->success('Đăng ký thành công');
         return redirect()->route('login');
     }
 }
