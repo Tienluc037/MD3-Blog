@@ -32,7 +32,7 @@
 {{--        {{$role->name === 'admin' ? '': $role->name}} <br>--}}
         @endif
     @endforeach
-    <button>Register</button>
+    <button>Đăng ký</button>
 </form>
 </body>
 </html>
