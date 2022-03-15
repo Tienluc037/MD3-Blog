@@ -35,7 +35,7 @@ Route::middleware('checkAuth')->prefix('blogs')->group(function (){
 
 });
 
-Route::get('register',[AuthController::class, 'showForm'])->name('showFormRegister');
+Route::get('register',[AuthController::class, 'showFormRegister'])->name('showFormRegister');
 Route::post('register',[AuthController::class, 'register'])->name('register')->middleware('checkRegister');
 
 

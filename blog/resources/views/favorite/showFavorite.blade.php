@@ -1,6 +1,5 @@
-
 @extends("home")
-@section("title","favorite")
+@section("title","Favorite")
 @section("content")
 <div class="card shadow mb-4" style="text-align: center">
     <div class="card-header py-3">

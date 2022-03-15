@@ -1,8 +1,8 @@
 @extends('home')
+@section('title','Danh sách bài viết')
 @section('content')
-    <a href="{{route('logout')}}">Logout</a><br>
-    <a href="{{route('blogs.showFavorite')}}">Favorite List({{count(session()->get('favorite')) ?? ''}})
-    </a>
+{{--    <a href="{{route('logout')}}">Logout</a><br>--}}
+{{--    <a href="{{route('blogs.showFavorite')}}">Favorite List({{count(session()->get('favorite')??[])}})</a>--}}
     <div class="card shadow mb-4" style="text-align: center">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary"><a href="{{route("blogs.create")}}"

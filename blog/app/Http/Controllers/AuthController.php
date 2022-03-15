@@ -39,7 +39,7 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 
-    public function showForm()
+    public function showFormRegister()
     {
         $roles = Role::all();
         return view('auth.register',compact('roles'));

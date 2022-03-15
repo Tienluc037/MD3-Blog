@@ -8,7 +8,6 @@
 
 @extends('home')
 @section('title', 'Thêm mới')
-
 @section('content')
 
     <div class="card shadow mb-4">
@@ -32,7 +31,7 @@
                         </div>
                         <div class="form-group" >
                             <label for="" >Nội dung
-                            <textarea name="content" class="form-control" rows="5" cols="100">{{old('content')}}</textarea></label>
+                            <textarea name="content" class="form-control" rows="5" cols="100">{{old('content')}} </textarea></label>
                             @error('content')
                             <p style="color: red">{{($message)}}</p>
                             @enderror
